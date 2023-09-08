@@ -22,7 +22,7 @@ function Course_Slider({ Courses }) {
           
           spaceBetween={24}
           loop={true}
-        
+          navigation={true}
           freemode={true}
           autoplay={true }
           modules={[FreeMode, Pagination,Autoplay]}
