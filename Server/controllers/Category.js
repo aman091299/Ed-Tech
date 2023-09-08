@@ -69,6 +69,10 @@ exports.createCategory =async(req,res)=>{
 
     //category page details handler
     //get course for specific categoryId
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max)
+      }
+
     exports.categoryPageDetails=async (req,res)=>{
         try {
             //get category id
@@ -99,18 +103,25 @@ exports.createCategory =async(req,res)=>{
         })
       }
             //category with different course
-          const differentCategory=await Category.find({
-                                                        _id:{$ne:categoryId},
-                                                          })
+            const categoriesExceptSelected = await Category.find({
+                _id: { $ne: categoryId },
+              })
+              //choosing random category
+          const differentCategory=await Category.findOne(
+                                                        categoriesExceptSelected[getRandomInt( categoriesExceptSelected.length)]._id,
+                                                          )
                                                           .populate({
                                                             path: "courses",
                                                             match: { status: "Published" },
+                                                            populate: {
+                                                              path: "instructor",
+                                                          },
                                                           })
                                                           .exec()
-      //console.log("Different COURSE", differentCategory)
+      console.log("Different COURSE", differentCategory)
 
       //find all category
-      const allCategories = await Category.find()
+      const allCategories = await Category.find({})
       .populate({
         path: "courses",
         match: { status: "Published" },
@@ -125,7 +136,7 @@ exports.createCategory =async(req,res)=>{
             const mostSellingCourses = allCourses
             .sort((a, b) => b.sold - a.sold)
             .slice(0, 10)
-           console.log("mostSellingCourses COURSE", mostSellingCourses)
+        //    console.log("mostSellingCourses COURSE", mostSellingCourses)
             //return response
             return res.status(200).json({
                 success:true,
