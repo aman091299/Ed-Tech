@@ -18,19 +18,23 @@ function Course_Slider({ Courses }) {
     <>
       {Courses?.length ? (
         <Swiper
-          slidesPerView={1}
-          spaceBetween={25}
+        slidesPerView={4} 
+          
+          spaceBetween={24}
           loop={true}
+        
+          freemode={true}
+          autoplay={true }
           modules={[FreeMode, Pagination,Autoplay]}
           breakpoints={{
             1024: {
-              slidesPerView: 3,
+              slidesPerView: 4,
             },
           }}
-          className="max-h-[30rem] mySwiper"
+          className="h-[300px] max-h-[40rem] mySwiper"
         >
           {Courses?.map((course, i) => (
-            <SwiperSlide key={i}>
+            <SwiperSlide key={i} className="h-[300px]">
               <Course_Card course={course} Height={"h-[250px]"} />
             </SwiperSlide>
           ))}
