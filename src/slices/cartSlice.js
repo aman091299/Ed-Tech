@@ -24,7 +24,7 @@ const cartSlice=createSlice({
         //add to cart 
         addToCart:(state,action)=>{
              const course =action.payload
-             const index=state.cart.findIndex((item)=>item.id === course._id)
+             const index=state.cart.findIndex((item)=>item._id === course._id)
 
              if(index >= 0){
                 toast.error("course already in cart");
