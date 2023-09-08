@@ -106,6 +106,7 @@ paymentObject.on("payment failed",function(response){
 toast.dismiss();
 }
 
+// Send the Payment Success Email
 async function sendPaymentSuccessEmail(response,amount,token){
     try{
         
