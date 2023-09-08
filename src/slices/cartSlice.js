@@ -24,8 +24,9 @@ const cartSlice=createSlice({
         //add to cart 
         addToCart:(state,action)=>{
              const course =action.payload
+            
              const index=state.cart.findIndex((item)=>item._id === course._id)
-
+              
              if(index >= 0){
                 toast.error("course already in cart");
                 return;
@@ -47,7 +48,7 @@ const cartSlice=createSlice({
             const courseId=action.payload
 
             //return the index of the first element that satisfy the condition
-            const index=state.cart.findIndex((item)=>item.id === courseId)
+            const index=state.cart.findIndex((item)=>item._id === courseId)
 
             if(index >= 0){
                 //if the course is found in the cart,remove it
