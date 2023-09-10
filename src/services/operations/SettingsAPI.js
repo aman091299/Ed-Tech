@@ -99,11 +99,12 @@ export function deleteProfile(token, navigate) {
       })
       console.log("DELETE_PROFILE_API API RESPONSE............", response)
 
-      if (!response.data.success) {
+      if (!response.data.status) {
         throw new Error(response.data.message)
       }
-      toast.success("Profile Deleted Successfully")
-      dispatch(logout(navigate))
+      toast.success("Profile Deleted Successfully");
+      console.log("navigate delete profile")
+      dispatch(logout(navigate));
     } catch (error) {
       console.log("DELETE_PROFILE_API API ERROR............", error)
       toast.error("Could Not Delete Profile")

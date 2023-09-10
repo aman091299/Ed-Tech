@@ -45,34 +45,27 @@ details > summary::-webkit-details-marker {
 
 /* https://10015.io/tools/css-loader-generator */
 
+
+
 .spinner {
-  position: relative;
-  width: 56px;
-  height: 56px;
+   width: 88px;
+   height: 88px;
+   border-radius: 50%;
+   padding: 1.8px;
+   background: conic-gradient(#0000 10%,#474bff) content-box;
+   -webkit-mask: repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
+        radial-gradient(farthest-side,#0000 calc(100% - 14.1px),#000 calc(100% - 14.1px));
+   -webkit-mask-composite: destination-in;
+   mask-composite: intersect;
+   animation: spinner-d55elj 1s infinite steps(10);
 }
 
-.spinner::before,
-.spinner::after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  animation: spinner-rfi6tk 1s infinite linear;
-  box-sizing: border-box;
-  border: 11.2px solid rgba(71,75,255,0.1);
-  border-radius: 50%;
-  position: absolute;
+@keyframes spinner-d55elj {
+   to {
+      transform: rotate(1turn);
+   }
 }
 
-.spinner::before {
-  animation-direction: reverse;
-  border-right-color: #474bff;
-  right: calc(50% - 5.6px);
-}
-
-.spinner::after {
-  border-left-color: #474bff;
-  left: calc(50% - 5.6px);
-}
 
 .codeblock1 {
   width: 372.95px;

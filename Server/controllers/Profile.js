@@ -129,7 +129,7 @@ exports.getAllUserDetails=async (req,res)=>{
 exports.updateDisplayPicture=async (req,res)=>{
     try {  
         
-        console.log(req.files.displayPicture);
+        console.log("req.files.displayPicture",req.files.displayPicture);
       
         const displayPicture=req.files.displayPicture;
         const userId = req.user.id;
@@ -138,11 +138,14 @@ exports.updateDisplayPicture=async (req,res)=>{
 
              
 
+   const userDetails=await User.findById(userId);
+  
     const updatedProfile=await User.findByIdAndUpdate(userId,{
         image:image.secure_url
     },
     {new:true}
     );
+   
 
     // const profile=updatedProfile.additionalDetails.
 

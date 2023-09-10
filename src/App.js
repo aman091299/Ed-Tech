@@ -15,10 +15,8 @@ import  MyProfile from './components/core/Dashboard/MyProfile'
 import Dashboard from './pages/Dashboard'
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import Error from './pages/Error'
-import Settings from "./components/core/Dashboard/Settings/ChangeProfilePicture";
-import DeleteAccount from "./components/core/Dashboard/Settings/DeleteAccount"
-import EditProfile from "./components/core/Dashboard/Settings/EditProfile"
-import UpdatePassword1  from "./components/core/Dashboard/Settings/UpdatePassword"
+import Settings from "./components/core/Dashboard/Settings/index";
+
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
 import { Cart } from "./components/core/Dashboard/Cart/index";
 import MyCourses from "./components/core/Dashboard/MyCourses"
@@ -101,20 +99,10 @@ function App() {
 
 <Route path="dashboard/my-profile" element={<MyProfile/>}/>
 
- {/* <Route path="dashboard/settings" element={
+ <Route path="dashboard/Settings" element={
      <Settings/>
- }/> */}
-  {/* <Route path="dashboard/settings" element={
-     <DeleteAccount/>
- }/> */}
-  {/* <Route path="dashboard/settings" element={
-     <EditProfile/> */}
-  {/* <Route path="dashboard/settings" element={
-     <UpdatePassword1/>
- }/> */}
-   <Route path="dashboard/settings" element={
-     <EditProfile/>
  }/>
+
 
  {
   user?.accountType === ACCOUNT_TYPE.STUDENT &&(

@@ -40,7 +40,7 @@ exports.sendotp=async (req,res)=>{
             //create an entry for otp
              const otpPayload ={email,otp};
              //ye dekhna hai console me
-             console.log("ye dekhna hai console me otp payload:",otpPayload)
+
              
             const otpBody=await OTP.create(otpPayload);
             console.log(otpBody);
@@ -116,7 +116,7 @@ exports.signup=async (req,res)=>{
      }))
  }
               //find most recent otp stored for the user
-              const recentOtp=await OTP.find({email}).sort({createdAt:-1}).limit(1);
+              const recentOtp=await OTP.find({email:email}).sort({createdAt:-1}).limit(1);
                 console.log("yha ye function return kya krega ye dekhna hai",recentOtp);
       
              //validate OTP
