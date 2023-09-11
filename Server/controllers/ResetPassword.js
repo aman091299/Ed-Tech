@@ -6,7 +6,7 @@ const crypto=require("crypto");
 //token expire in 5 minute
 exports.resetPasswordToken=async (req,res)=>{
     try {
-      console.log("password reset")
+   
         //get email from body
         const {email}=req.body;
         //email validation
