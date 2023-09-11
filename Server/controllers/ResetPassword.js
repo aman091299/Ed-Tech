@@ -46,14 +46,14 @@ exports.resetPasswordToken=async (req,res)=>{
     "Password reset Link",
     `Your Link for email verification is ${url}  . Please click this url to reset your password.`)
   //return response
+  console.log("password reset")
   return res.json({
     success:true,
-   
     message:"Email send successfully ,please check email and change password",
   });
 
-
-    } catch (error) {
+    } 
+    catch (error) {
         console.log(error);
         return res.status(500).json({
             success:false,
