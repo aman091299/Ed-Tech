@@ -128,6 +128,7 @@ export function login(email, password, navigate) {
 }
 
 export function getPasswordResetToken(email, setEmailSent) {
+  console.log("reset password token")
   return async (dispatch) => {
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
@@ -154,6 +155,7 @@ export function getPasswordResetToken(email, setEmailSent) {
 }
 
 export function resetPassword(password, confirmPassword, token, navigate) {
+  console.log("reset Password")
   return async (dispatch) => {
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))

@@ -5,6 +5,7 @@
 
 exports.createCategory =async(req,res)=>{
     try {
+        console.log("hey category")
         const {name,description}=req.body;
         if(!name || !description){
            return res.status(400).json({
