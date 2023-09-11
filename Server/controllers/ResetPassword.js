@@ -6,6 +6,7 @@ const crypto=require("crypto");
 //token expire in 5 minute
 exports.resetPasswordToken=async (req,res)=>{
     try {
+      console.log("password reset")
         //get email from body
         const {email}=req.body;
         //email validation
@@ -37,8 +38,10 @@ exports.resetPasswordToken=async (req,res)=>{
             { new:true },
             );
    //create url
-   const url = `http://localhost:3000/update-password/${token}`;
+   const url = `http://studynotion-frontend-7yx8ge3n3-aman091299.vercel.app/update-password/${token}`;
   //send mail containint the url
+  console.log("url",url)
+
   await mailSender(email,
     "Password reset Link",
     `Your Link for email verification is ${url}  . Please click this url to reset your password.`)
@@ -46,7 +49,7 @@ exports.resetPasswordToken=async (req,res)=>{
   return res.json({
     success:true,
    
-    message:"Email sent successfully ,please check email and change password",
+    message:"Email send successfully ,please check email and change password",
   });
 
 
