@@ -58,13 +58,13 @@ const SignupForm = ({setIsLoggedIn}) => {
         onClick={()=>{
             setAccountType("Student")
            }}
-          className={`${accountType === "student" ? ("bg-richblack-900 text-richblack-5 "):"bg-transparent text-richblack-200"} py-2 px-8 rounded-full transition-all duration-200"`}>
+          className={`${accountType === "Student" ? ("bg-richblack-900 text-richblack-5 "):"bg-transparent text-richblack-200"} py-2 px-8 rounded-full transition-all duration-200"`}>
                 Student
             </button>
             <button onClick={()=>{ 
                 setAccountType("Instructor")
                 }}
-                className={`${accountType === "instructor" ? ("bg-richblack-900 text-richblack-5 "):"bg-transparent text-richblack-200 "}py-2 px-5 rounded-full transition-all dura tion-200"`}>
+                className={`${accountType === "Instructor" ? ("bg-richblack-900 text-richblack-5 "):"bg-transparent text-richblack-200 "}py-2 px-8 rounded-full transition-all duration-200"`}>
                 Instructor
             </button>
                 </div>
